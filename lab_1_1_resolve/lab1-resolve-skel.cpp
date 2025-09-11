@@ -93,7 +93,7 @@ int main( int aArgc, char* aArgv[] )
 		fprintf(stderr, "getaddrinfo failed: %s\n", gai_strerror(errors));
 		return 1;
 	}
-	printf("111\n");
+	
 	if (result == nullptr) {
 		printf("getaddrinfo returned no results!\n");
 		return 1;
@@ -101,6 +101,7 @@ int main( int aArgc, char* aArgv[] )
 	for(struct addrinfo* p = result; p != nullptr; p = p -> ai_next){
 		assert(p->ai_family == AF_INET);
 		struct sockaddr_in* ipv4 = (struct sockaddr_in*)p->ai_addr; // cast to sockaddr_in*
+		
 		// to convert an in_addr to a human-readable string,
         // you can use inet_ntop()
 		char ipStr[INET_ADDRSTRLEN];
