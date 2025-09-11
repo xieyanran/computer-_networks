@@ -72,7 +72,7 @@ int main( int aArgc, char* aArgv[] )
 	// set the remaining elements to zero
 
 	struct addrinfo hints_ipv6;
-	memset(&hints_ipv6, 0, sizeof(hints_ipv4));
+	memset(&hints_ipv6, 0, sizeof(hints_ipv6));
 	// specify AF_INET as the address family
 	hints_ipv6.ai_family = AF_INET6;
 	// set the socket type to SOCK_STREAM
@@ -137,7 +137,7 @@ int main( int aArgc, char* aArgv[] )
 	
 	for(struct addrinfo* p = result_ipv6; p != nullptr; p = p -> ai_next){
 		assert(p->ai_family == AF_INET6);
-		struct sockaddr_in6* ipv6 = (struct sockaddr_in6*)p->ai_addr; // cast to sockaddr_in*
+		struct sockaddr_in6* ipv6 = (struct sockaddr_in6*)p->ai_addr; // cast to sockaddr_in6*
 		
 		// to convert an in_addr to a human-readable string,
         // you can use inet_ntop()
