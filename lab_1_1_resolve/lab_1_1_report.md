@@ -153,6 +153,7 @@ Our main interest for now is the  AF_INET address family, which represents IPv4 
 - ...
 
 ```
+
 man 7 ip
 struct sockaddr_in {
                sa_family_t    sin_family; /* address family: AF_INET */
