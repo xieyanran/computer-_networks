@@ -188,7 +188,13 @@ Repeat the measurement with 100 clients and 10000 queries, using the multi clien
 
 ### Exercise I.a.3
 
-Consider the very simple denial of service attack we performed in the previous 
+Consider the very simple denial of service attack we performed in the previous lab, where a single client (using the simple client program) would block the server for all other clients (emulated using the multi-client program). 
+Is it still possible to block the server using a single client? (Try it!)
+
+### Exercise I.a.4
+
+Discuss with your partner: There may still be some issues with the server. Can you identify any? (For instance, is it still possible for a determined person to deny service to other persons? If so, under what conditions?) Suggest possible solutions!
+
 
 
 
