@@ -182,18 +182,71 @@ immediately?.
 
 Check with netstat and document the status of the connection from each client.
 
+*The states are both ESTABLISHED*
+
+```bash
+xieyanran@ubuntuos:~/computer-_networks$ netstat --inet -p
+(Not all processes could be identified, non-owned process info
+ will not be shown, you would have to be root to see it all.)
+Active Internet connections (w/o servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 ubuntuos:49346          carpaccio.canonic:https ESTABLISHED -                   
+tcp        0      0 ubuntuos:58482          13.107.246.53:https     ESTABLISHED 21165/exe           
+tcp        0      0 ubuntuos:60338          20.42.65.93:https       ESTABLISHED 21165/exe           
+tcp        0      0 ubuntuos:57832          cdn-185-199-109-1:https ESTABLISHED 21165/exe           
+tcp        0      0 ubuntuos:58788          192.168.10.16:5703      ESTABLISHED 30273/./client-simp 
+tcp        0      0 ubuntuos:44134          dashboard.snapcra:https ESTABLISHED -                   
+tcp        0      0 ubuntuos:41372          dashboard.snapcra:https ESTABLISHED -                   
+tcp        0      0 ubuntuos:60068          snapstore-content:https ESTABLISHED -                   
+tcp        0      0 ubuntuos:49750          api.snapcraft.io:https  TIME_WAIT   -                   
+tcp        0      0 ubuntuos:56952          192.168.10.16:5703      ESTABLISHED 30048/./client-simp 
+udp        0      0 ubuntuos:bootpc         192.168.40.254:bootps   ESTABLISHED -     
+```
+
 ### Exercise I.a.2
 
 Repeat the measurement with 100 clients and 10000 queries, using the multi client emulator. Compare to the timings you wrote down in the previous Lab. Compare to the timings you wrote down in the previous Lab.
+
+**In lab 2:**
+
+```bash
+Connect timing results for 9 successful connections
+  - min time: 6.685237 ms
+  - max time: 51.836324 ms
+  - average time: 37.615612 ms
+ (91 connections failed!)
+Roundtrip timing results for 9 connections for 1000 round trips
+  - min time: 25414.758791 ms
+  - max time: 250327.127279 ms
+  - average time: 141778.680158 ms
+```
+
+**In lab 3:**
+
+```bash
+Connect timing results for 40 successful connections
+  - min time: 34.269400 ms
+  - max time: 15062.638997 ms
+  - average time: 5372.387485 ms
+ (60 connections failed!)
+Roundtrip timing results for 40 connections for 1000 round trips
+  - min time: 23327.355522 ms
+  - max time: 26127.345257 ms
+  - average time: 25161.852033 ms
+```
 
 ### Exercise I.a.3
 
 Consider the very simple denial of service attack we performed in the previous lab, where a single client (using the simple client program) would block the server for all other clients (emulated using the multi-client program). 
 Is it still possible to block the server using a single client? (Try it!)
 
+*Not all. But still some. Becuse by using the `netstat` command show there are still some SYN_SENT state of tcp connection exit*
+
 ### Exercise I.a.4
 
 Discuss with your partner: There may still be some issues with the server. Can you identify any? (For instance, is it still possible for a determined person to deny service to other persons? If so, under what conditions?) Suggest possible solutions!
+
+*The select time??*
 
 
 
